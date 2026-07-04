@@ -38,7 +38,7 @@ end-to-end, no API keys required (LiteLLM and Langfuse both fall back to mocks u
 you set `OPENAI_API_KEY` / `LANGFUSE_PUBLIC_KEY`):
 
 ```bash
-git clone <this-repo> ai-flight-recorder
+git clone git@github.com:weareoxd/ai-flight-recorder.git
 cd ai-flight-recorder
 uv run python examples/quickstart.py
 ```
@@ -69,3 +69,7 @@ pytest
 ```
 
 All tests are fully mocked; no test hits litellm or Langfuse over the network.
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the full contributor workflow, and
+[SECURITY.md](SECURITY.md) to report a vulnerability. This project follows the
+[Code of Conduct](CODE_OF_CONDUCT.md).
