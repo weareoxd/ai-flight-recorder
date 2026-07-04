@@ -1,0 +1,45 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ai-flight-recorder"
+version = "0.1.0"
+description = "A thin governance layer on top of Langfuse for recording and surfacing AI-influenced decisions."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.11"
+authors = [{ name = "OXD Consulting Ltd." }]
+keywords = ["governance", "ai-audit", "langfuse", "litellm", "compliance"]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+dependencies = [
+    "litellm>=1.50.0",
+    "langfuse>=3.3.0,<4.0.0",
+    "pydantic>=2.6",
+]
+
+[project.optional-dependencies]
+presidio = ["presidio-analyzer>=2.2"]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.24",
+]
+
+[project.scripts]
+ai-flight-recorder-setup-scores = "ai_flight_recorder.scoring:main"
+
+[project.urls]
+Homepage = "https://github.com/example/ai-flight-recorder"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ai_flight_recorder"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
